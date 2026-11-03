@@ -1,0 +1,43 @@
+\usepackage[margin=1in]{geometry}
+\usepackage{indentfirst}
+\usepackage{sectsty}
+
+\sectionfont{\centering}
+
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{13.59999pt}
+\fancyhead[L]{QUADRASIM -- PROJECT PROPOSAL}
+\fancyhead[R]{Adam Ben-Aamr}
+\fancyfoot[C]{\thepage}
+
+% Command for making custom title
+\newcommand{\titlemaker}[1]{
+  \begin{titlepage}
+    \begin{center}
+      \vspace*{2.5in}
+
+      % Title of paper
+      {\bfseries \Large #1}\\[2.0em]
+
+      % Name of author(s)
+      \large Adam Ben-Aamr\\[0.5em]
+
+      % Department and university name
+      {adam.benaamr@uri.edu}\\[0.5em]
+
+      % Course name and number - course title
+      {The University of Rhode Island}\\[0.5em]
+
+      % Course name and number - course title
+      {CSC 212: Data Structures and Abstractions}
+    \end{center}
+  \end{titlepage}
+}
