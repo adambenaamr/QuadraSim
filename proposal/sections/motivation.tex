@@ -1,0 +1,17 @@
+\section*{Problem and Motivation}
+
+Collision detection in real time with a large number of moving objects is challenging. Comparing
+each object with each of the others is a possible solution. However, this brute-force approach requires a
+time complexity of $O({n}^{2})$, where $n$ is the number of objects. The simulation runs become slower with an
+increase in the number of objects. Applications like physics and video games that need many spatial
+queries can be severely limited.
+
+This project uses spatial partitioning to speed up collision detection. In particular, this project
+will use and measure the performance of Quadtree. A Quadtree is a data structure used for recursive
+subdivision of two-dimensional space. The project will measure and compare the performance of
+Quadtree against a brute-force approach and a uniform spatial grid.
+
+An interesting problem of using spatial partitioning is how different spatial partitioning
+structures perform depending on the particle distribution. Although Quadtree can reduce unnecessary
+checks, a lot of overhead is introduced by having a structure. The simulation particle count and
+distribution as well as Quadtree parameters need to be examined.

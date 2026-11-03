@@ -1,0 +1,29 @@
+\section*{Planned Demonstration}
+
+The finished project will be a two-dimensional particle simulation written in C++. This particle
+simulation will show how spatial partitioning can make collision-detection faster. Particles will move
+inside a space collide with each other and bounce off the walls. Users can change how particles there
+are change their spatial distribution, pause or resume the particle simulation and choose between three
+collision-detection algorithms: brute force, a uniform spatial grid and a Quadtree.
+
+The application will show a real-time visualization of the Quadtree's subdivisions. This
+visualization will let users see how the environment is split into regions as particle density grows. When
+a collision query runs the application will highlight the Quadtree regions and the candidate particle
+pairs. This makes it clear how the Quadtree limits the search to particles instead of checking every pair.
+A performance dashboard will show metrics like candidate-pair counts, collision-detection time,
+index-construction time and the number of Quadtree nodes.
+
+During the demonstration I will start with a small number of particles and show how each
+collision-detection algorithm finds collisions. Then I will gradually increase the particle count to show the
+cost of brute-force collision detection compared to the spatial partitioning methods. Next I will present both
+uniform and clustered particle distributions to illustrate how workload patterns affect the
+Quadtree's performance versus the uniform grid. Finally, I will run the application's benchmarking mode
+with particle setups and display the resulting performance measurements.
+
+The main goal of the demonstration is to make the Quadtree's advantage clear both visually and
+in numbers. The spatial subdivision overlay will show how the Quadtree organizes the environment. At
+the time the performance dashboard will reveal whether this organization cuts down on needless
+collision checks and speeds up execution. The demonstration will also point out cases where building
+and walking through the Quadtree adds work or where dense clusters reduce its usefulness. By mixing
+visualization, with measurable performance data the finished project will show not only how the
+Quadtree works but also when and why it can make collision detection more efficient.

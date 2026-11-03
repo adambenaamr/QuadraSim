@@ -1,0 +1,41 @@
+\section*{Proposed Solution and Data Structure}
+
+The program will let you run an interactive 2D simulation to test and measure how good
+different spatial partitioning algorithms are at detecting collisions between particles. The particles will be able
+to move inside the borders of the world and collide and bounce off the borders of the world. In
+C++, there will be three methods of collision detection that can be run against each other. Those
+methods will be brute force pairwise, a uniform spatial grid, and a Quadtree. Each of those methods will
+be tested against different particle counts, different spatial configurations, and different algorithm
+configurations.
+
+For the primary data structure of the Quadtree, each node in the tree will be a two-dimensional
+spatial area. Each node in the tree will be a data structure that will store the information about all the
+particles inside it and the information about the descendants of that node. A particle system will contain
+many regions, and when a node in the Quadtree has too many particles in its region, that region will be
+partitioned into four quadrants of equal area. Each quadrant will have the potential of becoming a new
+node in the Quadtree. A node can have children in a hierarchical structure, and a particle can be inside
+more than one node in a system, but it will be inside a specific node for each level of the particle tree.
+With the particle system as a Quadtree, collision detection will be done in the most efficient manner as
+the algorithm will have the option of ignoring pairs of particles that are already separated by space,
+reducing the computational time required for a collision check in an efficient manner.
+
+Quadtrees are ideal for this problem because particle locations can vary continuously and be
+spatially uneven. With a uniform grid, the space is divided into fixed-sized cells and so the granularity is
+uniform across the entire space. Unlike the uniform grid, Quadtrees adapt the space granularity based
+on the particle density in the space. The flexibility offered by Quadtrees can improve performance when
+particle density is high in some areas and low in others. It is important to note, however, that building
+and traversing the Quadtree introduces additional overhead. Consequently, whether it improves or
+hinders the performance of the simulation will depend on the simulation's attributes.
+
+The simulation will implement both a uniform spatial grid and the Quadtree, along with a
+baseline brute force method which involves checking every unique pair of particles for collision. Using C++, these
+methods will be implemented, and their candidate-pair counts, collision detection times,
+overheads for constructing indices, and their respective memory usage will be measured.
+
+For the purposes of the project, object-oriented design and C++ modules will be used to keep
+particle management, collision detection, spatial indexing, simulation logic and performance
+measurement separate from one another. Automated testing will confirm that the implemented
+collision detection algorithms find the same collision pairs, and a benchmarking system will track their
+performance using a range of particle numbers and different particle spatial distributions. Through this
+project, I intend to show the utility of advanced data structures, and to determine the cases in which
+adaptive spatial partitioning improves performance over traditional methods.

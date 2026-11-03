@@ -1,0 +1,30 @@
+\section*{Baseline and Evaluation Plan}
+
+The main baseline will be a brute-force collision-detection algorithm that checks every pair of
+particles to see if a collision has happened. This method needs $O({n}^{2})$ comparisons for $n$ particles. Will
+give a reference point for measuring how much faster spatial partitioning can be. The Quadtree
+approach will also be tested against a spatial grid, which splits the simulation area into fixed-size cells
+and limits collision checks to nearby cells. All three algorithms will use the collision-detection rules and
+particle settings so that the comparison is fair.
+
+Testing will use generated particle placements inside a bounded two-dimensional space. The
+placements will cover random positions, clusters, very dense spots and sparse spreads. The number of
+particles will grow step by step: 100 first then 500, 1,000, 2,500, 5,000, 10,000, and maybe 25,000 or
+more depending on how the hardware handles it. Extra tests will change Quadtree settings, such as how
+many particles a node can hold and how deep the tree can grow, to see how the setup changes speed.
+
+The main measurements will be the time taken for collision detection the number of candidate
+particle pairs that were checked the time to build the index and the amount of memory used. The
+Quadtree will also record how nodes it has and its deepest level so we can see how much overhead the hierarchy
+adds. Every algorithm will run with the particle setups and we will repeat each test many times to lower the effect
+of random noise. We will confirm correctness by comparing the collision pairs found by each method with those found
+by the brute-force baseline.
+
+Results will be shown with tables and graphs that compare how fast each algorithm is across
+numbers of particles different spatial layouts and different settings. Especially plots of time and
+candidate-pair counts, versus particle count will show how each method scales when the workload
+grows. We will also compare how the particle layout and the Quadtree setup affect speed. Finally, we
+will analyze the data against what theory predicts for each algorithm so we can spot when spatial
+partitioning gives the advantage and when its extra cost makes it less useful.
+
+
